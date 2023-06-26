@@ -1,9 +1,12 @@
 import React from "react"
+import Home from "./Home"
+import AddRecipeForm from "./AddRecipeForm";
 
 function App(){
     return (
         <div>
-            Hello World!
+            <Home />
+            <AddRecipeForm />
         </div>
     )
 }

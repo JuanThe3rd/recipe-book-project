@@ -2,7 +2,7 @@ import React from "react"
 
 function AddRecipeForm(){
     return (
-        <div className="hidden">
+        <div>
             Hello World!
         </div>
     )

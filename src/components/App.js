@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Route, Switch } from "react-router-dom";
-import Home from "./Home"
 import AddRecipeForm from "./AddRecipeForm";
 import NavBar from "./NavBar";
+import Album from "./Album";
 
-const API = "http://localhost:3000/recipes"
+
+const API = "http://localhost:3001/recipes"
 
 
 function App() {
@@ -13,20 +14,23 @@ function App() {
     useEffect(() => fetch(API)
         .then(res => res.json())
         .then(setRecipes), [])
-
     return (
+        
         <div>
             <h1 className="header">Recipe Book</h1>
             <NavBar />
+
             <Switch>
                 <Route exact path="/">
-                    <Home recipes={recipes} />
+                    {/* <Home recipes={recipes} /> */}
+                    <Album recipes={recipes} />
                 </Route>
                 <Route path="/new" >
                     <AddRecipeForm />
                 </Route>
             </Switch>
         </div>
+        
     )
 }
 

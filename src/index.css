@@ -1,3 +1,40 @@
-.hidden {
-    display: none;
+h1 {
+    margin-left: 40%;
+    margin-right: 40%;
+    text-align: center;
+    border: black solid 1px;
+}
+
+h3 {
+    margin-left: 5%;
+    margin-right: 5%;
+    border: black solid 1px;
+}
+
+.nav-link {
+    margin-right: 1rem;
+    color: blue;
+}
+
+.nav-bar {
+    margin-left: 3rem;
+}
+
+.recipe-card{
+    display: inline-grid;
+    border: black solid 1px;
+    border-radius: 1rem;
+    width: 25rem;
+    height: 25rem;
+    margin: 1rem;
+    text-align: center;
+    margin-left: 3rem;
+}
+
+.recipe-img {
+    justify-content: center;
+}
+
+img {
+    width: 150%;
 }

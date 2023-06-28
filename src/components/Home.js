@@ -3,9 +3,9 @@ import RecipeCard from "./RecipeCard";
 
 function Home({ recipes }) {
     return (
-        <ul>
+        <div>
             {recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} />)}
-        </ul>
+        </div>
     )
 }
 

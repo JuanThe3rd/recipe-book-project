@@ -28,14 +28,14 @@ function Copyright() {
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Album({recipes, navClick, navColors}) {
+export default function Album({recipes}) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            <NavBar navClick={navClick} navColors={navColors}/>
+            <NavBar />
           </Typography>
         </Toolbar>
       </AppBar>

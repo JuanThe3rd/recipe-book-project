@@ -6,10 +6,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import Button from '@mui/material/Button';
+import { flexbox } from "@mui/system"
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
-function RecipeCard({ recipe, recipeDetailClick }) {
+function RecipeCard({ recipe, addLike, removeLike, recipeDetailClick }) {
     return(
         <Grid item key={recipe.id} xs={12} sm={6} md={4}>
         <Card
@@ -33,10 +36,8 @@ function RecipeCard({ recipe, recipeDetailClick }) {
           </CardContent>
           <CardActions>
             <NavLink onClick={() => recipeDetailClick(recipe)} className="recipe-btn" to="/recipe-details" exact>Recipe</NavLink>
-            <Button size="small">Like</Button>
-            <Typography style={{"margin-right": 0}}>
-              <StarBorderOutlinedIcon /> {recipe.rating} / 5
-            </Typography>
+            {recipe.liked ? <FavoriteOutlinedIcon style={{color: "red"}} onClick={() => removeLike(recipe)}/> : <FavoriteBorderOutlinedIcon /* style={{marginRight: 50}} */ onClick={() => addLike(recipe)}/>}
+            <Typography style={{transform: "translateX(40px)"}}> Rating: {recipe.rating} / 5</Typography>
           </CardActions>
         </Card>
       </Grid>

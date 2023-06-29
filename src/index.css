@@ -16,10 +16,6 @@ h3 {
     color: blue;
 }
 
-.nav-bar {
-    margin-left: 3rem;
-}
-
 .recipe-card{
     display: inline-grid;
     border: black solid 1px;

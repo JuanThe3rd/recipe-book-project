@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Route, Switch } from "react-router-dom";
 import AddRecipeForm from "./AddRecipeForm";
-import NavBar from "./NavBar";
 import Album from "./Album";
 
 
@@ -18,7 +17,6 @@ function App() {
         
         <div>
             <h1 className="header">Recipe Book</h1>
-            <NavBar />
 
             <Switch>
                 <Route exact path="/">

@@ -9,7 +9,7 @@ function NavBar() {
     }
 
     return(
-        <div className="nav-bar">
+        <div>
             <NavLink onClick={() => changeNavColor(0)} style={{color: navColors.home}} className="nav-link" to="/" exact >Home</NavLink>
             <NavLink onClick={() => changeNavColor(1)} style={{color: navColors.newRecipe}} className="nav-link" to="/new" exact >New Recipe</NavLink>
         </div>

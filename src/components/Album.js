@@ -1,4 +1,5 @@
 import * as React from 'react';
+import NavBar from './NavBar'
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -36,7 +37,7 @@ export default function Album({recipes}) {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            
+            <NavBar />
           </Typography>
         </Toolbar>
       </AppBar>
@@ -76,7 +77,7 @@ export default function Album({recipes}) {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {recipes.map((recipe) => (
-             <RecipeCard recipe={recipe} />
+              <RecipeCard recipe={recipe} />
             ))}
           </Grid>
         </Container>

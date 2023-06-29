@@ -4,6 +4,7 @@ import AddRecipeForm from "./AddRecipeForm";
 import Album from "./Album";
 import RecipeDetails from "./RecipeDetails";
 
+
 const API = "http://localhost:3001/recipes"
 
 
@@ -25,8 +26,12 @@ function App() {
                 <Route exact path="/">
                     <Album recipes={recipes} addLike={addLike} removeLike={removeLike} recipeDetailClick={handleRecipeDetailClick}/>
                 </Route>
+                {/* <Route>
+                   not fully put together  <Recipe recipes={recipes} />
+
+                </Route> */}
                 <Route path="/new" >
-                    <AddRecipeForm />
+                    <AddRecipeForm recipes={recipes} />
                 </Route>
                 <Route path="/recipe-details">
                     <RecipeDetails recipe={recipeDetails}/>

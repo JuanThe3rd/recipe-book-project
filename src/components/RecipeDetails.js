@@ -21,7 +21,6 @@ function RecipeDetails({recipe}){
                     </Toolbar>
                 </AppBar>
                 <div className="details-container">
-                    <h1>{recipe.name}</h1>
                     <iframe src={recipe.link} className="recipe-link"/>
                 </div>
             </ThemeProvider> 

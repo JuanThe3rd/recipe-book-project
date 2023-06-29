@@ -7,8 +7,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Button from '@mui/material/Button';
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
-function RecipeCard({ recipe }) {
+function RecipeCard({ recipe, recipeDetailClick }) {
     return(
         <Grid item key={recipe.id} xs={12} sm={6} md={4}>
         <Card
@@ -24,17 +25,17 @@ function RecipeCard({ recipe }) {
           />
           <CardContent sx={{ flexGrow: 1 }}>
             <Typography gutterBottom variant="h5" component="h2">
-            {recipe.name}
+              {recipe.name}
             </Typography>
             <Typography>
-            {recipe.description}
+              {recipe.description}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Recipe</Button>
+            <NavLink onClick={() => recipeDetailClick(recipe)} className="recipe-btn" to="/recipe-details" exact>Recipe</NavLink>
             <Button size="small">Like</Button>
-            <Typography >
-            <StarBorderOutlinedIcon /> {recipe.rating} / 5
+            <Typography style={{"margin-right": 0}}>
+              <StarBorderOutlinedIcon /> {recipe.rating} / 5
             </Typography>
           </CardActions>
         </Card>

@@ -28,7 +28,7 @@ function Copyright() {
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Album({recipes}) {
+export default function Album({ recipes, recipeDetailClick }) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -67,7 +67,7 @@ export default function Album({recipes}) {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {recipes.map((recipe) => (
-              <RecipeCard recipe={recipe} />
+              <RecipeCard key={recipe.name} recipe={recipe} recipeDetailClick={recipeDetailClick}/>
             ))}
           </Grid>
         </Container>
@@ -92,16 +92,3 @@ export default function Album({recipes}) {
   );
 }
 
-/*
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-
-<Stack
-  sx={{ pt: 4 }}
-  direction="row"
-  spacing={2}
-  justifyContent="center"
->
-  <Button variant="contained">New Recipe</Button>
-</Stack>
-*/

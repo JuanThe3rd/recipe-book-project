@@ -116,3 +116,9 @@ img {
     margin-right: auto;
     width: 30%;
 }
+
+.recipe-link {
+    width: 90%;
+    height: 900px;
+    padding: 1rem;
+}

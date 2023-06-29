@@ -8,19 +8,16 @@ const API = "http://localhost:3001/recipes"
 
 
 function App() {
-    const [recipes, setRecipes] = useState([])
+    const [recipes, setRecipes] = useState([]);
 
     useEffect(() => fetch(API)
         .then(res => res.json())
         .then(setRecipes), [])
-    return (
-        
-        <div>
-            <h1 className="header">Recipe Book</h1>
 
+    return (
+        <div>
             <Switch>
                 <Route exact path="/">
-                    {/* <Home recipes={recipes} /> */}
                     <Album recipes={recipes} />
                 </Route>
                 <Route path="/new" >

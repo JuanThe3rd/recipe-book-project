@@ -1,10 +1,8 @@
 import * as React from 'react';
 import NavBar from './NavBar'
 import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -63,14 +61,6 @@ export default function Album({recipes}) {
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
             Hungry for something new? Come browse some of the most amazing recipes around the world!
             </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">New Recipe</Button>
-            </Stack>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
@@ -102,3 +92,16 @@ export default function Album({recipes}) {
   );
 }
 
+/*
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
+<Stack
+  sx={{ pt: 4 }}
+  direction="row"
+  spacing={2}
+  justifyContent="center"
+>
+  <Button variant="contained">New Recipe</Button>
+</Stack>
+*/

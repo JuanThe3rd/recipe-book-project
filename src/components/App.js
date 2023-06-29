@@ -18,7 +18,7 @@ function App() {
         <div>
             <Switch>
                 <Route exact path="/">
-                    <Album recipes={recipes} />
+                    <Album recipes={recipes} addLike={addLike} removeLike={removeLike}/>
                 </Route>
                 <Route path="/new" >
                     <AddRecipeForm />
@@ -27,6 +27,33 @@ function App() {
         </div>
         
     )
+
+    function addLike(recipe) {
+        const newRecipeList = recipes.map(r => r.id !== recipe.id ? r : {...r, liked: true})
+        setRecipes(newRecipeList)
+        
+        fetch(`${API}/${recipe.id}`, {
+            method: "PATCH",
+            body: JSON.stringify({ liked: true }),
+            headers: {
+                accepts: "application/json",
+                "Content-type": "application/json"
+            },
+        })
+    }
+    function removeLike(recipe) {
+        const newRecipeList = recipes.map(r => r.id !== recipe.id ? r : {...r, liked: false})
+        setRecipes(newRecipeList)
+        
+        fetch(`${API}/${recipe.id}`, {
+            method: "PATCH",
+            body: JSON.stringify({ liked: false }),
+            headers: {
+                accepts: "application/json",
+                "Content-type": "application/json"
+            },
+        })
+    }
 }
 
 export default App;

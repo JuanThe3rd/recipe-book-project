@@ -28,7 +28,7 @@ function Copyright() {
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Album({recipes}) {
+export default function Album({recipes, addLike, removeLike}) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -67,7 +67,7 @@ export default function Album({recipes}) {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {recipes.map((recipe) => (
-              <RecipeCard recipe={recipe} />
+              <RecipeCard recipe={recipe} key={recipe.id} addLike={addLike} removeLike={removeLike} />
             ))}
           </Grid>
         </Container>

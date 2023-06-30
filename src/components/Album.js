@@ -42,15 +42,15 @@ export default function Album({recipes, addLike, removeLike, recipeDetailClick})
           }}
         >
           <Container maxWidth="sm">
-            {/* <Typography
+            <Typography
               component="h1"
               variant="h2"
               align="center"
               color="text.primary"
               gutterBottom
             >
-          
-            </Typography> */}
+              Recipe Book
+            </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
             Hungry for something new? Come browse some of the most amazing recipes around the world!
             </Typography>

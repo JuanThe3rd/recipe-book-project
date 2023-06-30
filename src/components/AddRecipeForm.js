@@ -5,24 +5,22 @@ import { Button, TextField,Box, Alert} from "@mui/material"
 
 
 function AddRecipeForm({onClick}){
-    
     const [addRecipe,setAddRecipe]=useState({})
     const [showAlert,setShowAlert]=useState(false)
+
     useEffect(() => {setTimeout(() => setShowAlert(false), 3000)} ,[showAlert])
 
     function onChange(e){
         setAddRecipe({...addRecipe, [e.target.name] : e.target.value})
-      }
-      
+    }  
 
-function onSubmit(recipe,e){
-  e.preventDefault()
-  onClick(recipe)
-  setShowAlert(true)
+    function onSubmit(recipe,e){
+        e.preventDefault()
+        onClick(recipe)
+        setShowAlert(true)
+    }
 
-}
     return (
-        
         <Box component="form" sx={{display:"flex",alignItems:"center", flexDirection: 'column'}}>
             <Typography variant="h4"> New Recipe </Typography>
             <br/>
@@ -39,9 +37,8 @@ function onSubmit(recipe,e){
             <Button  variant="contained" onClick={(e) => onSubmit(addRecipe, e)}  >Submit your Recipe </Button>
             
         </Box>
-        
     )
-    }
+}
 
 export default AddRecipeForm;
 

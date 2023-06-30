@@ -1,52 +1,48 @@
-import React from "react";
-import NavBar from "./NavBar";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container'
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import React, {useEffect, useState} from "react"
+import Typography from '@mui/material/Typography'
+import { Button, TextField,Box, Alert} from "@mui/material"
 
-function AddRecipeForm({}){
-    const defaultTheme = createTheme();
 
-    return (
-        <ThemeProvider theme={defaultTheme}>
-            <CssBaseline />
-            <AppBar position="relative">
-                <Toolbar>
-                    <Typography variant="h6" color="inherit" noWrap>
-                        <NavBar />
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <main>
-                <Box 
-                    sx={{
-                        bgcolor: 'background.paper',
-                        pt: 8,
-                        pb: 6,
-                    }}
-                >
-                    <Container maxWidth="sm">
-                        <Typography 
-                            component="h1"
-                            variant="h2"
-                            align="center"
-                            color="text.primary"
-                            gutterBottom
-                        >
-                            New Recipe Form
-                        </Typography>
-                        <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                            Fill out the information below to have you recipe published in the home page!
-                        </Typography>
-                    </Container>
-                </Box>
-            </main>
-        </ThemeProvider>
-    )
+
+function AddRecipeForm({onClick}){
+    
+    const [addRecipe,setAddRecipe]=useState({})
+    const [showAlert,setShowAlert]=useState(false)
+    useEffect(() => {setTimeout(() => setShowAlert(false), 3000)} ,[showAlert])
+
+    function onChange(e){
+        setAddRecipe({...addRecipe, [e.target.name] : e.target.value})
+      }
+      
+
+function onSubmit(recipe,e){
+  e.preventDefault()
+  onClick(recipe)
+  setShowAlert(true)
+
 }
+    return (
+        
+        <Box component="form" sx={{display:"flex",alignItems:"center", flexDirection: 'column'}}>
+            <Typography variant="h4"> New Recipe </Typography>
+            <br/>
+            <TextField sx={{width:"25%"}} label="Name" name="name" variant="outlined" value={addRecipe.name} onChange={onChange} />
+            <br/>
+            <TextField sx={{width:"25%"}} label="Link" name="link" variant="outlined" value={addRecipe.link} onChange={onChange}  />
+            <br/>
+            <TextField sx={{width:"25%"}} label="Image" name="image" variant="outlined" value={addRecipe.image} onChange={onChange}  />
+            <br/>
+            <TextField sx={{width:"25%"}} multiline name="description" label="Description" variant="outlined" value={addRecipe.description} onChange={onChange} />
+            <br/>
+
+            {showAlert && <Alert>Recipe was added to Home page</Alert>  }
+            <Button  variant="contained" onClick={(e) => onSubmit(addRecipe, e)}  >Submit your Recipe </Button>
+            
+        </Box>
+        
+    )
+    }
 
 export default AddRecipeForm;
+
+

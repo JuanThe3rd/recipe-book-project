@@ -32,13 +32,6 @@ export default function Album({recipes, addLike, removeLike, recipeDetailClick})
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            <NavBar />
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <main>
         {/* Hero unit */}
         <Box
@@ -49,18 +42,26 @@ export default function Album({recipes, addLike, removeLike, recipeDetailClick})
           }}
         >
           <Container maxWidth="sm">
-            <Typography
+            {/* <Typography
               component="h1"
               variant="h2"
               align="center"
               color="text.primary"
               gutterBottom
             >
-              Recipe Book
-            </Typography>
+          
+            </Typography> */}
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
             Hungry for something new? Come browse some of the most amazing recipes around the world!
             </Typography>
+            {/* <Stack
+              sx={{ pt: 4 }}
+              direction="row"
+              spacing={2}
+              justifyContent="center"
+            >
+              <Button variant="contained">New Recipe</Button>
+            </Stack> */}
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
